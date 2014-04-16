@@ -13,7 +13,7 @@ describe('service', function() {
     });
 
     describe('mopidyConfiguration', function(){
-        var mock, mopidyConfiguration;
+        var mock;
 
         describe('when when server is in the location search', function(){
             beforeEach(function(){
