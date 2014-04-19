@@ -2,7 +2,6 @@
 
 /* Services */
 
-
 var services = angular.module('qlab.services', []);
 
 services.value('version', '0.1');

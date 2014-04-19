@@ -8,6 +8,13 @@ var Mopidy = function(settings){
         setConsume: jasmine.createSpy("setConsume()")
     }
 
+    this.playback = {
+        play: jasmine.createSpy("play()"),
+        pause: jasmine.createSpy("pause()"),
+        next: jasmine.createSpy("next()"),
+        previous: jasmine.createSpy("previous()")
+    }
+
     this.stubEvent = function(name){
         eventStubs[name] = function(){};
     }
