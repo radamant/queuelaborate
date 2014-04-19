@@ -3,24 +3,24 @@
 /* Controllers */
 
 var controllers = angular.module('qlab.controllers', ["qlab.services"]);
-controllers.controller('QueuePageController',  function(MopidyEngine) {
+controllers.controller('QueuePageController',  function(MopidyClient) {
   })
 controllers.controller('SettingsPageController', [function() {
 
 }]);
 
-controllers.controller('PlaybackController', function($scope, MopidyEngine){
+controllers.controller('PlaybackController', function($scope, MopidyClient){
     $scope.play = function(){
-        MopidyEngine.playback.play();
+        MopidyClient.playback.play();
     }
     $scope.pause = function(){
-        MopidyEngine.playback.pause();
+        MopidyClient.playback.pause();
     }
     $scope.next = function(){
-        MopidyEngine.playback.next();
+        MopidyClient.playback.next();
     };
     $scope.previous = function(){
-        MopidyEngine.playback.previous();
+        MopidyClient.playback.previous();
     }
 
 });

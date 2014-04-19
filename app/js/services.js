@@ -18,7 +18,7 @@ services.factory('MopidyConfiguration', ['$location', function(location){
 }]);
 
 var _mopidy = {};
-services.factory('MopidyEngine', function(MopidyConfiguration){
+services.factory('MopidyClient', function(MopidyConfiguration){
     var mopidy = new Mopidy(MopidyConfiguration);
     var enableDebugging = function(){
         _mopidy = mopidy;

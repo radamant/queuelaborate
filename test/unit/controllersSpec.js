@@ -17,7 +17,7 @@ describe('controllers', function(){
     }));
 
     it('should have a PlaybackController', inject(function($controller) {
-        var controller = $controller('PlaybackController', {$scope: {}, MopidyEngine: {}});
+        var controller = $controller('PlaybackController', {$scope: {}, MopidyClient: {}});
         expect(controller).toBeDefined();
     }));
 
@@ -27,7 +27,7 @@ describe('controllers', function(){
         beforeEach(inject(function($rootScope, $controller){
             mopidy = new Mopidy();
             $scope = $rootScope.$new();
-            $controller('PlaybackController', {$scope: $scope, MopidyEngine: mopidy});
+            $controller('PlaybackController', {$scope: $scope, MopidyClient: mopidy});
         }));
 
         it("calls mopidy's playback.play() on play()", function(){

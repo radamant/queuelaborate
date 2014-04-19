@@ -41,7 +41,7 @@ describe('service', function() {
         });
     })
 
-    describe('MopidyEngine', function(){
+    describe('MopidyClient', function(){
         var mockConfiguration = "mock configuration";
         var mopidy;
         beforeEach(function(){
@@ -52,7 +52,7 @@ describe('service', function() {
                 $provide.value("MopidyConfiguration", mockConfiguration);
             })
         })
-        it("instantiates a new Mopidy object", inject(function(MopidyEngine){
+        it("instantiates a new Mopidy object", inject(function(MopidyClient){
             expect(window.Mopidy).toHaveBeenCalledWith(mockConfiguration);
         }));
 
@@ -62,7 +62,7 @@ describe('service', function() {
                 mopidy.onlineCallback = function(){}
                 mopidy.stubEvent(mopidyOnline);
             })
-            it("sets the tracklist to consume", inject(function(MopidyEngine){
+            it("sets the tracklist to consume", inject(function(MopidyClient){
                 expect(mopidy.tracklist.setConsume).not.toHaveBeenCalled();
                 mopidy.triggerEvent(mopidyOnline);
                 expect(mopidy.tracklist.setConsume).toHaveBeenCalled();
