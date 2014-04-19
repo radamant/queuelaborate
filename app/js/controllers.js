@@ -4,7 +4,6 @@
 
 var controllers = angular.module('qlab.controllers', ["qlab.services"]);
 controllers.controller('QueuePageController',  function(MopidyEngine) {
-      console.log(MopidyEngine);
   })
 controllers.controller('SettingsPageController', [function() {
 
