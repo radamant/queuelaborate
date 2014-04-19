@@ -13,7 +13,7 @@ services.factory('MopidyConfiguration', ['$location', function(location){
     var serverName = location.search().server;
 
     if(serverName){
-        config.webSocketUrl = "ws://" + serverName + ":6680/mopidy/ws";
+        config.webSocketUrl = "ws://" + serverName + ":6680/mopidy/ws/";
     }
 
     return config;

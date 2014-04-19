@@ -30,7 +30,7 @@ describe('service', function() {
 
             it('should return the server as ws address', inject(function(MopidyConfiguration){
                 var address = MopidyConfiguration.webSocketUrl;
-                expect(address).toEqual("ws://fooserver:6680/mopidy/ws");
+                expect(address).toEqual("ws://fooserver:6680/mopidy/ws/");
             }));
         });
 
