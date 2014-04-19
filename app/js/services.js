@@ -8,7 +8,7 @@
 var services = angular.module('qlab.services', []);
 services.value('version', '0.1');
 
-services.factory('mopidyConfiguration', ['$location', function(location){
+services.factory('MopidyConfiguration', ['$location', function(location){
     var config = {};
     var serverName = location.search().server;
 
