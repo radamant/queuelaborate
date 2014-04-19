@@ -3,9 +3,8 @@
 /* Services */
 
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
 var services = angular.module('qlab.services', []);
+
 services.value('version', '0.1');
 
 services.factory('MopidyConfiguration', ['$location', function(location){
@@ -18,3 +17,20 @@ services.factory('MopidyConfiguration', ['$location', function(location){
 
     return config;
 }]);
+
+var _mopidy = {};
+services.factory('MopidyEngine', function(MopidyConfiguration){
+    var mopidy = new Mopidy(MopidyConfiguration);
+    var enableDebugging = function(){
+        _mopidy = mopidy;
+        mopidy.on(console.log.bind(console));
+    }
+
+    enableDebugging();
+
+    mopidy.on("state:online", function(){
+        mopidy.tracklist.setConsume(true);
+    });
+
+    return mopidy;
+})

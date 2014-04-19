@@ -40,4 +40,36 @@ describe('service', function() {
             }));
         });
     })
+
+    describe('MopidyEngine', function(){
+        var mockConfiguration = "mock configuration";
+        var mopidy;
+        beforeEach(function(){
+            mopidy = new Mopidy();
+            spyOn(window, "Mopidy").andReturn(mopidy);
+
+            module(function($provide){
+                $provide.value("MopidyConfiguration", mockConfiguration);
+            })
+        })
+        it("instantiates a new Mopidy object", inject(function(MopidyEngine){
+            expect(window.Mopidy).toHaveBeenCalledWith(mockConfiguration);
+        }));
+
+        describe("when mopidy comes online", function(){
+            var mopidyOnline = "state:online";
+            beforeEach(function(){
+                mopidy.onlineCallback = function(){}
+                mopidy.stubEvent(mopidyOnline);
+            })
+            it("sets the tracklist to consume", inject(function(MopidyEngine){
+                expect(mopidy.tracklist.setConsume).not.toHaveBeenCalled();
+                mopidy.triggerEvent(mopidyOnline);
+                expect(mopidy.tracklist.setConsume).toHaveBeenCalled();
+
+            }));
+        })
+
+
+    })
 });
