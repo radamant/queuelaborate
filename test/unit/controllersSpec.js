@@ -8,13 +8,13 @@ describe('controllers', function(){
 
   it('should ....', inject(function($controller) {
     //spec body
-    var myCtrl1 = $controller('MyCtrl1');
-    expect(myCtrl1).toBeDefined();
+    var queuePageController = $controller('QueuePageController');
+    expect(queuePageController).toBeDefined();
   }));
 
   it('should ....', inject(function($controller) {
     //spec body
-    var myCtrl2 = $controller('MyCtrl2');
-    expect(myCtrl2).toBeDefined();
+    var settingsPageController = $controller('SettingsPageController');
+    expect(settingsPageController).toBeDefined();
   }));
 });

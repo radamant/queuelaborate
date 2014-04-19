@@ -3,9 +3,9 @@
 /* Controllers */
 
 angular.module('qlab.controllers', [])
-  .controller('MyCtrl1', [function() {
+  .controller('QueuePageController', [function() {
 
   }])
-  .controller('MyCtrl2', [function() {
+  .controller('SettingsPageController', [function() {
 
   }]);
