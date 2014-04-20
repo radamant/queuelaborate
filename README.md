@@ -1,26 +1,18 @@
-# angular-seed — the seed for AngularJS apps
+# Queuelaborate
 
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
-You can use it to quickly bootstrap your angular webapp projects and dev environment for these
-projects.
-
-The seed contains a sample AngularJS application and is preconfigured to install the Angular
-framework and a bunch of development and testing tools for instant web development gratification.
-
-The seed app doesn't do much, just shows how to wire two controllers and views together.
-
+*TBD*
 
 ## Getting Started
 
-To get you started you can simply clone the angular-seed repository and install the dependencies:
+To get you started you can simply clone the queuelaborate repository and install the dependencies:
 
-### Clone angular-seed
+### Clone queuelaborate
 
-Clone the angular-seed repository using [git][git]:
+Clone the queuelaborate repository using [git][git]:
 
 ```
-git clone https://github.com/angular/angular-seed.git
-cd angular-seed
+git clone https://github.com/radamant/queuelaborate.git
+cd queuelaborate
 ```
 
 ### Install Dependencies
@@ -88,11 +80,11 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
 
 ## Testing
 
-There are two kinds of tests in the angular-seed application: Unit tests and End to End tests.
+There are two kinds of tests in the queuelaborate application: Unit tests and End to End tests.
 
 ### Running Unit Tests
 
-The angular-seed app comes preconfigured with unit tests. These are written in
+The queuelaborate app comes preconfigured with unit tests. These are written in
 [Jasmine][jasmine], which we run with the [Karma Test Runner][karma]. We provide a Karma
 configuration file to run them.
 
@@ -121,7 +113,7 @@ npm run test-single-run
 
 ### End to end testing
 
-The angular-seed app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests
+The queuelaborate app comes with end-to-end tests, again written in [Jasmine][jasmine]. These tests
 are run with the [Protractor][protractor] End-to-End test runner.  It uses native events and has
 special features for Angular applications.
 
@@ -136,7 +128,7 @@ can interact with it.
 npm start
 ```
 
-In addition, since Protractor is built upon WebDriver we need to install this.  The angular-seed
+In addition, since Protractor is built upon WebDriver we need to install this.  The queuelaborate
 project comes with a predefined script to do this:
 
 ```
@@ -158,7 +150,7 @@ development server.
 
 ## Updating Angular
 
-Previously we recommended that you merge in changes to angular-seed into your own fork of the project.
+Previously we recommended that you merge in changes to queuelaborate into your own fork of the project.
 Now that the angular framework library code and tools are acquired through package managers (npm and
 bower) you can use these tools instead to update the dependencies.
 
@@ -181,7 +173,7 @@ This will find the latest versions that match the version ranges specified in th
 
 ## Loading Angular Asynchronously
 
-The angular-seed project supports loading the framework and application scripts asynchronously.  The
+The queuelaborate project supports loading the framework and application scripts asynchronously.  The
 special `index-async.html` is designed to support this style of loading.  For it to work you must
 inject a piece of Angular JavaScript into the HTML page.  The project has a predefined script to help
 do this.
@@ -205,7 +197,7 @@ etc to function properly when an html page is opened via `file://` scheme instea
 
 ### Running the App during Development
 
-The angular-seed project comes preconfigured with a local development webserver.  It is a node.js
+The queuelaborate project comes preconfigured with a local development webserver.  It is a node.js
 tool called [http-server][http-server].  You can start this webserver with `npm start` but you may choose to
 install the tool globally:
 
@@ -244,7 +236,7 @@ reverse-proxying the backend server(s) and webserver(s).
 ### Travis CI
 
 [Travis CI][travis] is a continuous integration service, which can monitor GitHub for new commits
-to your repository and execute scripts such as building the app or running tests. The angular-seed
+to your repository and execute scripts such as building the app or running tests. The queuelaborate
 project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
 tests when you push to GitHub.
 
