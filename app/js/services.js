@@ -33,3 +33,19 @@ services.factory('MopidyClient', function(MopidyConfiguration){
 
     return mopidy;
 })
+
+services.factory('Tracklist', function(MopidyClient, $rootScope){
+    var that = {
+        tracks: [],
+    var refreshTracklist = function(){
+        MopidyClient.tracklist.getTracks().then(function(newTracklist){
+            that.tracks = newTracklist;
+            $rootScope.$digest();
+        });
+    };
+
+    MopidyClient.on("event:tracklistChanged", refreshTracklist)
+    MopidyClient.on("state:online", refreshTracklist)
+
+    return that;
+})

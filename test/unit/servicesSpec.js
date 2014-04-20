@@ -59,7 +59,6 @@ describe('service', function() {
         describe("when mopidy comes online", function(){
             var mopidyOnline = "state:online";
             beforeEach(function(){
-                mopidy.onlineCallback = function(){}
                 mopidy.stubEvent(mopidyOnline);
             })
             it("sets the tracklist to consume", inject(function(MopidyClient){
@@ -69,7 +68,48 @@ describe('service', function() {
 
             }));
         })
+    });
 
+    describe("Tracklist", function(){
+        var mopidy;
+        var mopidyOnline = "state:online";
+        var tracklistChanged = "event:tracklistChanged";
+        var mockScope = jasmine.createSpyObj('rootScope', ['$digest']);
 
-    })
+        beforeEach(function(){
+            mopidy = new Mopidy();
+            mopidy.stubEvent(mopidyOnline);
+            mopidy.stubEvent(tracklistChanged);
+            module(function($provide){
+                $provide.value('MopidyClient', mopidy);
+                $provide.value('$rootScope', mockScope);
+            });
+        });
+
+        it("refreshes the tracklist when mopidy comes online", inject(function(Tracklist){
+            mopidy.triggerEvent(mopidyOnline);
+            expect(mopidy.tracklist.getTracks).toHaveBeenCalled();
+        }));
+
+        it("refreshes the tracklist when the tracklist has changed", inject(function(Tracklist){
+            mopidy.triggerEvent(tracklistChanged);
+            expect(mopidy.tracklist.getTracks).toHaveBeenCalled();
+        }));
+
+        describe("when the tracklist has changed", function(){
+            beforeEach(inject(function(Tracklist){
+                mopidy.mockTracklist = ['a', 'b', 'c']
+                mopidy.triggerEvent(tracklistChanged);
+            }));
+
+            it("assigns its tracks property with the new tracks", inject(function(Tracklist){
+                expect(Tracklist.tracks).toEqual(mopidy.mockTracklist);
+            }));
+
+            it("tells the root scope to digest data", inject(function(Tracklist){
+                expect(mockScope.$digest).toHaveBeenCalled();
+            }));
+
+        });
+    });
 });
