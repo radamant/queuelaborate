@@ -1,7 +1,5 @@
 'use strict';
 
-/* jasmine specs for services go here */
-
 describe('service', function() {
     beforeEach(module('qlab.services'));
 
@@ -111,5 +109,16 @@ describe('service', function() {
             }));
 
         });
+
+        describe(".remove(track)", function(){
+            var track = {uri: "an uri"};
+
+            it("removes the track by its URI", inject(function(Tracklist){
+                Tracklist.remove(track);
+                expect(mopidy.tracklist.remove).toHaveBeenCalledWith({
+                    uri: track.uri
+                });
+            }));
+        })
     });
 });

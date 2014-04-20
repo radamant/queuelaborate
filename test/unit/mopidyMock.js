@@ -1,7 +1,7 @@
 var Mopidy = function(settings){
     this.tracklist = jasmine.createSpyObj(
         'tracklist',
-        ['setConsume', 'getTracks']
+        ['setConsume', 'remove']
     );
 
     var that = this;
