@@ -38,7 +38,7 @@ services.factory('Tracklist', function(MopidyClient, $rootScope){
     var that = {
         tracks: [],
         remove: function(track){
-            var filter = {uri: track.uri};
+            var filter = {uri: [track.uri]};
             MopidyClient.tracklist.remove(filter);
         }
     }

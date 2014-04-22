@@ -116,7 +116,7 @@ describe('service', function() {
             it("removes the track by its URI", inject(function(Tracklist){
                 Tracklist.remove(track);
                 expect(mopidy.tracklist.remove).toHaveBeenCalledWith({
-                    uri: track.uri
+                    uri: [track.uri]
                 });
             }));
         })
