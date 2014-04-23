@@ -4,6 +4,10 @@ html {
     font-family: Helvetica;
 }
 
+h1 {
+    font-size: 22px;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -52,4 +56,37 @@ html {
 .playback a:hover {
     background-color: rgb(180,180,180);
     cursor: pointer;
+}
+
+.tracklist {
+    background-color: rgb(252,252,252);
+    border: 2px solid rgb(240,240,240);
+    margin-top: 10px;
+    min-height: 200px;
+    padding: 5px;
+    position: absolute;
+    right: 10px;
+    width: 370px;
+}
+
+.tracklist h1 {
+    font-size: 16px;
+    margin-top: 2px;
+    text-align: center;
+}
+.tracklist .track{
+    background-color: rgb(242,242,242);
+    height: 80px;
+    margin: 5px 0 0 0;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.tracklist .track .title {
+    font-weight: 800;
+}
+
+.tracklist .remove {
+    position: absolute;
+    right: 5px;
 }
