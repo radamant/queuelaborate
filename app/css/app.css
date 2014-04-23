@@ -1,5 +1,9 @@
 /* app css stylesheet */
 
+html {
+    font-family: Helvetica;
+}
+
 .menu {
   list-style: none;
   border-bottom: 0.1em solid black;
@@ -27,4 +31,25 @@
 .menu > li:nth-child(1):before {
   content: "";
   padding: 0;
+}
+
+.playback {
+    width: 55%;
+    margin: auto;
+}
+
+.playback a {
+    background-color: rgb(100,100,100);
+    color: #fff;
+    border-radius: 4px;
+    text-shadow: #666 1px 2px 2px;
+    display: inline-block;
+    margin-right: 2px;
+    text-align: center;
+    width: 24%;
+}
+
+.playback a:hover {
+    background-color: rgb(180,180,180);
+    cursor: pointer;
 }
