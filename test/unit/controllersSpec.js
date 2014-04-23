@@ -50,4 +50,30 @@ describe('controllers', function(){
             expect(mopidy.playback.previous).toHaveBeenCalled();
         })
     });
+
+    describe("TracklistController", function(){
+        var $scope;
+        var tracklist;
+
+        beforeEach(inject(function($rootScope, $controller){
+            tracklist = jasmine.createSpyObj("tracklist", ["remove"]);
+            $scope = $rootScope.$new();
+            $controller('TracklistController', {
+                $scope: $scope,
+                Tracklist: tracklist
+            })
+        }));
+
+        it("assigns Tracklist service to the scope", function(){
+            expect($scope.tracklist).toEqual(tracklist);
+        });
+
+        describe("remove(track)", function(){
+            it("delegates to the Tracklist service", function(){
+                var track = jasmine.createSpy("track");
+                $scope.remove(track);
+                expect(tracklist.remove).toHaveBeenCalledWith(track);            });
+
+        })
+    });
 });

@@ -24,3 +24,11 @@ controllers.controller('PlaybackController', function($scope, MopidyClient){
     }
 
 });
+
+controllers.controller('TracklistController', function($scope, Tracklist){
+    $scope.tracklist = Tracklist;
+
+     $scope.remove = function(track){
+         Tracklist.remove(track);
+     }
+});
