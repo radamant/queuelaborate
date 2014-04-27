@@ -119,6 +119,16 @@ describe('service', function() {
                     uri: [track.uri]
                 });
             }));
-        })
+        });
+    });
+
+    describe('SearchResults', function(){
+        it('can re-load itself with opidy results', inject(function(SearchResults){
+            var results = mockSearchResults()
+            SearchResults.load(results);
+            expect(SearchResults.albums).toEqual(results.albums);
+            expect(SearchResults.artists).toEqual(results.artists);
+            expect(SearchResults.tracks).toEqual(results.tracks);
+        }));
     });
 });

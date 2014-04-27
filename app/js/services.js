@@ -55,3 +55,18 @@ services.factory('Tracklist', function(MopidyClient, $rootScope){
 
     return that;
 })
+
+services.factory('SearchResults', function(){
+    var that = {
+        artists:[],
+        albums:[],
+        tracks: [],
+
+        load: function(results){
+            that.artists = results.artists;
+            that.albums = results.albums;
+            that.tracks = results.tracks;
+        }
+    }
+    return that;
+})
