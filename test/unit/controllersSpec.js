@@ -77,11 +77,54 @@ describe('controllers', function(){
         })
     });
 
+    describe("SearchController", function(){
+        var searchResults;
+        var $scope;
+        var rootScope;
+        var mopidy;
+        var query = {
+            phrase: 'dog moon night'
+        }
+
+        beforeEach(inject(function($controller, $rootScope){
+            rootScope = $rootScope;
+            $scope = $rootScope.$new()
+            spyOn($rootScope, '$digest');
+
+            mopidy = new Mopidy();
+            mopidy.mockSearchResults = ["mock results"];
+
+            searchResults = jasmine.createSpyObj('searchResults', ['load']);
+
+            $controller('SearchController', {
+                $scope: $scope,
+                SearchResults: searchResults,
+                MopidyClient: mopidy,
+                $rootScope: $rootScope
+            });
+            $scope.search(query)
+
+        }));
+
+        it("searches by query phrase and spotify uri", function(){
+            expect(mopidy.library.search).toHaveBeenCalledWith({any: query.phrase}, ["spotify:"])
+        });
+
+        it("tells results controller to load the first set of results", function(){
+            expect(searchResults.load).toHaveBeenCalledWith(mopidy.mockSearchResults[0]);
+        });
+
+        it("tells the scope to re-digest", function(){
+            expect(rootScope.$digest).toHaveBeenCalled();
+        });
+
+    });
     describe("SearchResultsController", function(){
         var searchResults;
-        var $scope = {};
+        var $scope;
         var mopidy;
-        beforeEach(inject(function($controller){
+        beforeEach(inject(function($controller, $rootScope){
+            $scope = $rootScope.$new();
             mopidy = new Mopidy()
             searchResults = jasmine.createSpy("searchResults");
             $controller('SearchResultsController', {

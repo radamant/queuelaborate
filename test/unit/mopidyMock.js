@@ -13,7 +13,19 @@ var Mopidy = function(settings){
             }
         }
     }
-    spyOn(this.tracklist, 'getTracks').andCallThrough()
+    spyOn(this.tracklist, 'getTracks').andCallThrough();
+    this.mockSearchResults = ['some results']
+    this.library = {
+        search: function(query, uris){
+            return {
+                then: function(fn){
+                    fn(that.mockSearchResults);
+                }
+            }
+        }
+    };
+    spyOn(this.library, 'search').andCallThrough();
+
 
 
     this.playback = jasmine.createSpyObj(

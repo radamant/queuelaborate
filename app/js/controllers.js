@@ -1,8 +1,7 @@
 'use strict';
 
-/* Controllers */
-
 var controllers = angular.module('qlab.controllers', ["qlab.services"]);
+
 controllers.controller('QueuePageController',  function(MopidyClient) {
   })
 controllers.controller('SettingsPageController', [function() {
@@ -32,6 +31,18 @@ controllers.controller('TracklistController', function($scope, Tracklist){
          Tracklist.remove(track);
      }
 });
+
+controllers.controller('SearchController', function($scope, MopidyClient, SearchResults, $rootScope){
+    $scope.search = function(query){
+         var search = {any: query.phrase};
+         var uris = ["spotify:"]
+         MopidyClient.library.search(search, uris).then(function(results){
+             SearchResults.load(results[0]);
+             $rootScope.$digest();
+         });
+    }
+})
+
 controllers.controller('SearchResultsController', function($scope, SearchResults, MopidyClient){
     $scope.results = SearchResults;
     $scope.queue = function(item){
