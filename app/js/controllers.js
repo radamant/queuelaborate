@@ -32,3 +32,9 @@ controllers.controller('TracklistController', function($scope, Tracklist){
          Tracklist.remove(track);
      }
 });
+controllers.controller('SearchResultsController', function($scope, SearchResults, MopidyClient){
+    $scope.results = SearchResults;
+    $scope.queue = function(item){
+        MopidyClient.tracklist.add(null, null, item.uri);
+    };
+});

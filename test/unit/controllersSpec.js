@@ -76,4 +76,34 @@ describe('controllers', function(){
 
         })
     });
+
+    describe("SearchResultsController", function(){
+        var searchResults;
+        var $scope = {};
+        var mopidy;
+        beforeEach(inject(function($controller){
+            mopidy = new Mopidy()
+            searchResults = jasmine.createSpy("searchResults");
+            $controller('SearchResultsController', {
+                $scope: $scope,
+                SearchResults: searchResults,
+                MopidyClient: mopidy
+            });
+        }));
+
+        it('assigns the SearchResults service to the scope', function(){
+            expect($scope.results).toEqual(searchResults);
+        });
+
+        describe('queue(item)', function(){
+            var item;
+            beforeEach(function(){
+                item = mockTrack();
+                $scope.queue(item);
+            });
+            it('queues the item by its URI', function(){
+                expect(mopidy.tracklist.add).toHaveBeenCalledWith(null, null, item.uri);
+            })
+        });
+    });
 });
