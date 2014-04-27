@@ -11,6 +11,7 @@ angular.module('qlab', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/queue', {templateUrl: 'partials/queue.html', controller: 'QueuePageController'});
+  $routeProvider.when('/search', {templateUrl: 'partials/search.html', controller: 'SearchPageController'});
   $routeProvider.when('/settings', {templateUrl: 'partials/settings.html', controller: 'SettingsPageController'});
   $routeProvider.otherwise({redirectTo: '/queue'});
 }]);

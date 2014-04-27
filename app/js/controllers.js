@@ -7,6 +7,9 @@ controllers.controller('QueuePageController',  function(MopidyClient) {
 controllers.controller('SettingsPageController', [function() {
 
 }]);
+controllers.controller('SearchPageController', [function() {
+
+}]);
 
 controllers.controller('PlaybackController', function($scope, MopidyClient){
     $scope.play = function(){
@@ -32,8 +35,9 @@ controllers.controller('TracklistController', function($scope, Tracklist){
      }
 });
 
-controllers.controller('SearchController', function($scope, MopidyClient, SearchResults, $rootScope){
+controllers.controller('SearchController', function($scope, MopidyClient, SearchResults, $rootScope, $location){
     $scope.search = function(query){
+        $location.path('/search');
          var search = {any: query.phrase};
          var uris = ["spotify:"]
          MopidyClient.library.search(search, uris).then(function(results){

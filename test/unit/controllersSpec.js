@@ -85,10 +85,12 @@ describe('controllers', function(){
         var query = {
             phrase: 'dog moon night'
         }
+        var location;
 
         beforeEach(inject(function($controller, $rootScope){
             rootScope = $rootScope;
             $scope = $rootScope.$new()
+            location = jasmine.createSpyObj('$location', ['path']);
             spyOn($rootScope, '$digest');
 
             mopidy = new Mopidy();
@@ -100,12 +102,15 @@ describe('controllers', function(){
                 $scope: $scope,
                 SearchResults: searchResults,
                 MopidyClient: mopidy,
-                $rootScope: $rootScope
+                $rootScope: $rootScope,
+                $location: location
             });
             $scope.search(query)
 
         }));
-
+        it("navigates to the search view", function(){
+            expect(location.path).toHaveBeenCalledWith('/search');
+        })
         it("searches by query phrase and spotify uri", function(){
             expect(mopidy.library.search).toHaveBeenCalledWith({any: query.phrase}, ["spotify:"])
         });

@@ -14,11 +14,14 @@
 
 </div>
 
-<div class="tracklist" ng-controller="TracklistController">
-  <h1>Track List</h1>
-  <div class="track" ng-repeat="track in tracklist.tracks">
-    <span class="title">{{track.name}}</span> <button class="remove" ng-click="remove(track)">x</button>
-    <div class="artist"><span ng-repeat="artist in track.artists">{{artist.name}}</span></div>
-    <div class="album">{{track.album.name}}</div>
+<div ng-controller="SearchResultsController">
+  <div class="results">
+    <div class='albums'>
+      <div class='result' ng-repeat='album in results.albums'>
+        {{album.name}}
+        <button ng-click='queue(album)'>queue</button>
+        <div class='artist'><span ng-repeat="artist in album.artists">{{artist.name}}</span></div>
+      </div>
+    </div>
   </div>
 </div>
