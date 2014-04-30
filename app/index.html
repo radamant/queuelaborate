@@ -4,12 +4,35 @@
   <meta charset="utf-8">
   <title>Queuelaborate</title>
   <link rel="stylesheet" href="css/app.css"/>
+  <link rel="stylesheet" href="css/output.css"/>
 </head>
 <body>
-  <ul class="menu">
-    <li><a href="#/queue">Queue</a></li>
-    <li><a href="#/settings">Settings</a></li>
-  </ul>
+<header class="navigation">
+  <div class="menu-wrapper">
+    <a href="javascript:void(0)" class="logo">
+      <img src="https://raw.github.com/Magnus-G/Random/master/placeholder_logo_1.png" alt="">
+    </a>
+    <p class="navigation-menu-button" id="js-mobile-menu">MENU</p>
+    <div class="nav">
+      <ul id="navigation-menu">
+        <li><a href="#/queue">Queue</a></li>
+        <li><a href="#/search">Search</a></li>
+        <li><a href="#/settings">Settings</a></li>
+        <li class="navigation-search-bar">
+          <div class="search-bar">
+            <div class="search-and-submit">
+              <input type="search" placeholder="Enter Search" />
+              <button type="submit">
+                <img src="https://raw.githubusercontent.com/Magnus-G/Random/master/search-icon.png" alt="">
+              </button>
+            </div>
+          </div>
+        </li>
+        <!-- <li class="sign-up"><a href="javascript:void(0)">Sign Up</a></li> -->
+      </ul>
+    </div>
+  </div>
+</header>
 
   <div ng-view></div>
 
