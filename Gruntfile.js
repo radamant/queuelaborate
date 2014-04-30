@@ -9,7 +9,7 @@ module.exports = function(grunt){
                     includePaths: require('node-neat').with(require('node-bourbon'))
                 },
                 files: {
-                    'app/css/output.css': 'app/sass/app.scss'
+                    'app/css/app.css': 'app/sass/app.scss'
                 }
             }
         }
