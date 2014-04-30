@@ -35,6 +35,12 @@ folders in your project.
 * `node_modules` - contains the npm packages for the tools we need
 * `bower_components` - contains the angular framework files
 
+### Generate SASS/SCSS
+
+```
+grunt sass
+```
+
 ### Run the Application
 
 We have preconfigured the project with a simple development web server.  The simplest way to start
