@@ -17,6 +17,11 @@
   @include outer-container;
   .track {
     @include span-columns(12);
+    padding: 1em 0;
+
+    &:hover {
+      background-color: $light-green;
+    }
     .artist, .title, .album {
       @include span-columns(3);
     }
@@ -39,6 +44,11 @@
 
     .result {
       @include span-columns(12);
+      padding: 1em 0;
+
+      &:hover {
+        background-color: $light-green;
+      }
       .artist, .title, {
         @include span-columns(5);
       }
