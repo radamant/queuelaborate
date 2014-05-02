@@ -32,6 +32,20 @@
     </div>
   </div>
 </header>
+<div class="playback" ng-controller="PlaybackController">
+  <a class="previous" ng-click="previous()">previous</a>
+  <a class="play" ng-click="play()">play</a>
+  <a class="pause" ng-click="pause()">pause</a>
+  <a class="next" ng-click="next()">next</a>
+
+</div>
+<div class="search" ng-controller="SearchController">
+  <form novalidate>
+    <input type='search' placeholder='search' ng-model='query.phrase'></input>
+    <button type='submit' ng-click='search(query)'>search</button>
+  </form>
+
+</div>
 
   <div ng-view></div>
 

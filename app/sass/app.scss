@@ -2,12 +2,16 @@
 @import "bourbon";
 @import "bitters/bitters";
 @import "neat";
-body {
-  font-family: $helvetica;
-  color: #333;
+.search {
+  input[type=search]{
+    width: 19em;
+  }
 }
-$dark-gray: #232;
-$base-accent-color: #344444;
+.playback {
+  a {
+    @include button
+  }
+}
 
 header.navigation {
   $navigation-background: $dark-gray;
