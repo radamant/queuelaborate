@@ -13,6 +13,19 @@
   }
 }
 
+.tracklist {
+  @include outer-container;
+  .track {
+    @include span-columns(12);
+    .artist, .title, .album {
+      @include span-columns(3);
+    }
+    .remove {
+      @include span-columns(1);
+    }
+  }
+}
+
 header.navigation {
   $navigation-background: $dark-gray;
   $navigation-color: transparentize(white, 0.3);

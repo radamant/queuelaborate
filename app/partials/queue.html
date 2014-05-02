@@ -2,8 +2,9 @@
 <div class="tracklist" ng-controller="TracklistController">
   <h1>Track List</h1>
   <div class="track" ng-repeat="track in tracklist.tracks">
-    <span class="title">{{track.name}}</span> <button class="remove" ng-click="remove(track)">x</button>
+    <span class="title">{{track.name}}</span>
     <div class="artist"><span ng-repeat="artist in track.artists">{{artist.name}}</span></div>
     <div class="album">{{track.album.name}}</div>
+    <button class="remove" ng-click="remove(track)">x</button>
   </div>
 </div>
