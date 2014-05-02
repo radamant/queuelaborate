@@ -26,6 +26,29 @@
   }
 }
 
+.results {
+  @include outer-container;
+
+  .albums, .tracks {
+    @include span-columns(12);
+    //@include omega();
+
+    h1 {
+      @include span-columns(12);
+    }
+
+    .result {
+      @include span-columns(12);
+      .artist, .title, {
+        @include span-columns(5);
+      }
+      button {
+        @include span-columns(1);
+      }
+    }
+  }
+}
+
 header.navigation {
   $navigation-background: $dark-gray;
   $navigation-color: transparentize(white, 0.3);

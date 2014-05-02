@@ -1,22 +1,25 @@
 <div ng-controller="SearchResultsController">
   <div class="results">
-    <h1>Albums</h1>
+    <h3>Albums</h3>
     <div class='albums'>
       <div class='result' ng-repeat='album in results.albums.slice(0,10)'>
-        {{album.name}}
-        <button ng-click='queue(album)'>queue</button>
+        <div class='title'>
+          {{album.name}}
+        </div>
         <div class='artist'><span ng-repeat="artist in album.artists">{{artist.name}}</span></div>
+        <button ng-click='queue(album)'>queue</button>
       </div>
     </div>
 
     <div class='tracks'>
-      <h1>Tracks</div>
+      <h3>Tracks</h3>
       <div class='result' ng-repeat='track in results.tracks.slice(0,10)'>
-        {{track.name}}
-        <button ng-click='queue(track)'>queue</button>
+        <div class='title'>
+          {{track.name}}
+        </div>
         <div class='artist'><span ng-repeat="artist in track.artists">{{artist.name}}</span></div>
+        <button ng-click='queue(track)'>queue</button>
       </div>
     </div>
-
   </div>
 </div>
