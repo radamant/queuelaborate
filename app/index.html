@@ -39,13 +39,9 @@
   <a class="next" ng-click="next()">next</a>
 
 </div>
-<div class="search" ng-controller="SearchController">
-  <form novalidate>
-    <input type='search' placeholder='search' ng-model='query.phrase'></input>
-    <button type='submit' ng-click='search(query)'>search</button>
-  </form>
+<div search-form></div>
 
-</div>
+
 
   <div ng-view></div>
 
