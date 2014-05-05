@@ -16,3 +16,19 @@ directives.directive('searchForm', function(){
         templateUrl: 'partials/search-form.html'
     }
 })
+
+directives.directive('albumCover', function($http){
+    return {
+        scope: {
+            info: '='
+        },
+        link: function(scope, element, attrs){
+            var url = "https://embed.spotify.com/oembed/?url=" + scope.info.uri + "&callback=JSON_CALLBACK";
+            $http.jsonp(url).success(function(data, status, headers, config){
+                scope.thumbnail = data.thumbnail_url
+            });
+        },
+        restrict: 'E',
+        template:'<img src="{{thumbnail}}" />'
+    }
+})

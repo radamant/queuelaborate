@@ -3,6 +3,7 @@
     <h3>Albums</h3>
     <div class='albums'>
       <div class='result' ng-repeat='album in results.albums.slice(0,10)'>
+        <album-cover info='album'></album-cover>
         <div class='title'>
           {{album.name}}
         </div>
@@ -14,6 +15,8 @@
     <div class='tracks'>
       <h3>Tracks</h3>
       <div class='result' ng-repeat='track in results.tracks.slice(0,10)'>
+        <album-cover info='track'></album-cover>
+
         <div class='title'>
           {{track.name}}
         </div>

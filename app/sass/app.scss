@@ -17,10 +17,16 @@
   @include outer-container;
   .track {
     @include span-columns(12);
-    padding: 1em 0;
+    padding: 1em 0 0;
 
     &:hover {
       background-color: $light-green;
+    }
+
+    album-cover {
+      @include span-columns(1);
+      height: 74px;
+        display: block;
     }
     .artist, .title, .album {
       @include span-columns(3);
@@ -49,8 +55,11 @@
       &:hover {
         background-color: $light-green;
       }
+      album-cover {
+        @include span-columns(1);
+      }
       .artist, .title, {
-        @include span-columns(5);
+        @include span-columns(4);
       }
       button {
         @include span-columns(1);
