@@ -1,5 +1,6 @@
 module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-sass');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.initConfig({
         sass: {
             dist: {
@@ -12,6 +13,13 @@ module.exports = function(grunt){
                     'app/css/app.css': 'app/sass/app.scss'
                 }
             }
+        },
+        watch: {
+            css: {
+                files: '**/*.scss',
+                tasks: ['sass']
+            }
         }
     });
+    grunt.registerTask('default',['watch']);
 };
