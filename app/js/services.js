@@ -2,20 +2,24 @@
 
 /* Services */
 
-var services = angular.module('qlab.services', []);
+var services = angular.module('qlab.services', ['ngCookies']);
 
 services.value('version', '0.1');
 
-services.factory('MopidyConfiguration', ['$location', function(location){
+services.factory('MopidyConfiguration', function($cookies){
     var config = {};
-    var serverName = location.search().server;
+    config.setWebSocketUrl = function(url){
+        config.webSocketUrl = url;
+        $cookies.webSocketUrl = url;
+    }
+    var serverName = $cookies.webSocketUrl;
 
     if(serverName){
-        config.webSocketUrl = "ws://" + serverName + ":6680/mopidy/ws/";
+        config.webSocketUrl = serverName; "ws://" + serverName + ":6680/mopidy/ws/";
     }
 
     return config;
-}]);
+});
 
 var _mopidy = {};
 services.factory('MopidyClient', function(MopidyConfiguration){

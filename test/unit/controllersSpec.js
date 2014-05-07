@@ -21,6 +21,36 @@ describe('controllers', function(){
         expect(controller).toBeDefined();
     }));
 
+    describe("SettingsController", function(){
+        var $scope;
+        var mopidyConfiguration;
+        beforeEach(inject(function($rootScope, $controller){
+            $scope = $rootScope.$new();
+            mopidyConfiguration = {
+                webSocketUrl: 'something',
+                setWebSocketUrl: jasmine.createSpy(),
+            };
+            $controller('SettingsController', {
+                $scope: $scope,
+                MopidyConfiguration: mopidyConfiguration
+            });
+
+        }));
+
+        it("exposes the websocket url to the scope", function(){
+            expect($scope.settings).toEqual(mopidyConfiguration);
+        })
+        describe('save(config)', function(){
+            it("updates the websocket url on the mopidy configuration", function(){
+                var config = {webSocketUrl: 'foo'}
+                $scope.save(config);
+                expect(mopidyConfiguration.setWebSocketUrl).toHaveBeenCalledWith(config.webSocketUrl)
+            });
+
+        })
+
+    });
+
     describe("PlaybackController", function(){
         var mopidy;
         var $scope

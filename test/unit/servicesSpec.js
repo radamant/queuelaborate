@@ -12,17 +12,16 @@ describe('service', function() {
 
     describe('MopidyConfiguration', function(){
         var mock;
+        var mockCookies;
 
         describe('when when server is in the location search', function(){
             beforeEach(function(){
-                mock = {
-                    search: function(){
-                        return { server: "fooserver" };
-                    }
-                };
+                mockCookies = {
+                    webSocketUrl: 'ws://fooserver:6680/mopidy/ws/'
+                }
 
                 module(function($provide) {
-                    $provide.value('$location', mock);
+                    $provide.value('$cookies', mockCookies);
                 });
             });
 
@@ -30,6 +29,21 @@ describe('service', function() {
                 var address = MopidyConfiguration.webSocketUrl;
                 expect(address).toEqual("ws://fooserver:6680/mopidy/ws/");
             }));
+
+            describe('setWebSocketUrl', function(){
+                it('updates the cookie', inject(function(MopidyConfiguration){
+                    MopidyConfiguration.setWebSocketUrl('ws://anotherurl');
+                    expect(mockCookies.webSocketUrl).toEqual('ws://anotherurl');
+                }));
+
+                it('updates the current config', inject(function(MopidyConfiguration){
+                    MopidyConfiguration.setWebSocketUrl('ws://anotherurl');
+                    expect(MopidyConfiguration.webSocketUrl).toEqual('ws://anotherurl');
+                }));
+
+            })
+
+
         });
 
         describe('when the server is not specified', function(){

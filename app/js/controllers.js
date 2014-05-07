@@ -53,3 +53,10 @@ controllers.controller('SearchResultsController', function($scope, SearchResults
         MopidyClient.tracklist.add(null, null, item.uri);
     };
 });
+
+controllers.controller('SettingsController', function($scope, MopidyConfiguration){
+    $scope.settings = MopidyConfiguration;
+    $scope.save = function(config){
+        MopidyConfiguration.setWebSocketUrl(config.webSocketUrl);
+    }
+})

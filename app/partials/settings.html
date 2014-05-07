@@ -1,5 +1,13 @@
 <h1>Settings</h1>
 <p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
+  <div ng-controller='SettingsController'>
+    <form novalidate>
+      <fieldset>
+        <label>Mopidy Web Socket Url:</label>
+        <input ng-model='settings.webSocketUrl' name='webSockeUrl' type='text' />
+        <p>example: ws://localhost:6680/mopidy/ws/</p>
+        <button ng-click='save(settings)'>save</button>
+      </fieldset>
+    </form>
+  </div>
 </p>
